@@ -1,0 +1,169 @@
+<p-menubar [model]="items" [style]="{backgroundColor:'var(--orange-400)'}">
+
+</p-menubar>
+
+
+<p-card content="content">
+    <p-table [value]="contatos">
+        <ng-template pTemplate="header">
+            <tr>
+                <th></th>
+                <th>Nome</th>            
+                <th>Telefone</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-contato>
+            <tr>
+                <td>
+                    <div id="imagens">
+                        <img src="{{contato.foto}}" width="100" />
+                    </div></td>   
+                <td>{{contato.nome}}</td>                     
+                <td> <i class="pi pi-phone"> </i>  {{contato.numero}}</td>
+                <td>
+                <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success"(click)="abrirJanelaAlterarContato(contato)" ></button>
+                <button pButton icon="pi pi-times" class="p-button-rounded p-button-danger" (click)="deletarContato(contato.id_contato)"></button>
+                </td>            
+            </tr>
+        </ng-template>        
+    </p-table>
+</p-card>
+
+
+
+<p-dialog header="Novo contato" [(visible)]="display" [style]="{width: '30vw'}">
+    <!-- <form>
+        
+        <p>Foto: <input type="file" [(ngModel)]="contato.foto" (change)="selecionarImagem($event)"></p><br>
+        <button type="button" (click)="cadastrarContato()"></button>
+        
+    </form> -->
+
+
+    <form [formGroup] = "uploadForm" (ngSubmit)="cadastrarContato()">  
+        <p>Nome: <input type="text" formControlName="nome" [(ngModel)]="contato.nome"></p><br>
+        <p>Telefone: <input type="text" formControlName="numero" [(ngModel)]="contato.numero"></p><br>    
+        <div>
+          <input type="file" formControlName="profile" (change)="onFileSelect($event)" />
+        </div>
+        <div>
+          <button type="submit">Cadastrar</button>
+        </div>
+      </form>
+</p-dialog>
+
+
+<p-dialog header="Alterar contato" [(visible)]="display_alterar" [style]="{width: '30vw'}">    
+
+    <form [formGroup] = "uploadForm" (ngSubmit)="alterarContato()">  
+        <p>Nome: <input type="text" formControlName="nome" [(ngModel)]="contato.nome"></p><br>
+        <p>Telefone: <input type="text" formControlName="numero" [(ngModel)]="contato.numero"></p><br>    
+        <div>
+          <input type="file" formControlName="profile" (change)="onFileSelect($event)" />
+        </div>
+        <div>
+          <button type="submit">Alterar</button>
+        </div>
+      </form>
+</p-dialog>
+
+
+
+
+
+
+
+
+<!-- <html>
+<p-orderList [value]="contatos" [listStyle]="{'max-height':'30rem', 'max-width': '80rem'}"header="Lista de contatos" filterBy="nome" filterPlaceholder="Filter by name">
+    <ng-template let-contato pTemplate="contato">
+        <div class="contato-item">
+            <div class="image-container" id="imagens">
+                    <img src="{{contato.foto}}" [alt]="contato.name" class="product-image" />
+            </div>
+            <div class="product-list-detail">
+                <h5 class="p-mb-2">{{contato.nome}}</h5>
+                <i class="pi pi-phone product-category-icon"></i>
+                <span class="product-category"> {{contato.numero}}</span>
+            </div>
+            <div class="product-list-action"> -->
+                <!-- <button style="margin-right:10px;" pButton type="button" icon="pi pi-pencil" class="p-button-success" iconPos="left" (click)="editarContato()"></button> -->
+                <!-- <button pButton type="button" icon="pi pi-times" class="p-button-danger" iconPos="left" (click)="deletarContato(contato.id_contato)"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-orderList>
+</html> -->
+
+<!--separando-->
+
+
+<!-- <div class="card">
+    <p-dataView #dv [value]="contatos" layout="listItem">
+        <ng-template pTemplate="header">
+            <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+                <span class="p-input-icon-left p-mb-2 p-mb-md-0">
+                    <i class="pi pi-search"></i>
+                    <input type="search" pInputText placeholder="Search by Name">
+                </span>
+            </div>
+        </ng-template>
+        <ng-template let-contato pTemplate="listItem">
+            <div class="p-col-12">
+                <div class="product-list-item" >
+                    <img src="{{contato.foto}}" [alt]=""/>
+                    <div class="product-list-detail">
+                        <div class="product-name">{{contato.nome}}</div>
+                        <i class="pi pi-phone product-category-icon"></i>
+                        <span class="product-category">{{contato.numero}}</span>
+                    </div>
+                    <div class="product-list-action">
+                        <p-button icon="pi pi-pencil" label="Editar"></p-button>
+                        <p-button icon="pi pi-times" label="Apagar"></p-button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
