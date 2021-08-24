@@ -5,41 +5,28 @@ import { AppComponent } from './app.component';
 import { ContatosComponent } from './contatos/contatos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContatosService } from './contatos.service';
-import {TableModule} from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {InputTextModule} from 'primeng/inputtext';
-import {OrderListModule} from 'primeng/orderlist';
-import {CardModule} from 'primeng/card';
-import {MenubarModule} from 'primeng/menubar';
-import {ButtonModule} from 'primeng/button';
-import {DataViewModule} from 'primeng/dataview';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import {DialogModule} from 'primeng/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CadastroEditarComponent } from './cadastro-editar/cadastro-editar.component';
 
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContatosComponent,
     CadastroComponent,
+    CadastroEditarComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule,    
-    TableModule,
+    HttpClientModule,        
     FormsModule,
-    ReactiveFormsModule,
-    InputTextModule,
-    OrderListModule,
-    CardModule,
-    MenubarModule,  
-    ButtonModule,
-    DataViewModule,
-    DialogModule, 
+    ReactiveFormsModule,  
+    FontAwesomeModule  
   ],
   providers: [ContatosService, HttpClientModule],
   bootstrap: [AppComponent]

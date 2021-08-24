@@ -1,11 +1,57 @@
-<p-menubar [model]="items" [style]="{backgroundColor:'var(--orange-400)'}">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-header card-header-rose">
+                    <h4 class="card-title">Lista de Contatos</h4>
+                    <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+                </div>
+                <div class="card-content table-responsive table-full-width">
+                    <table class="table">
+                        <thead class="text-danger">
+                            <th></th>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Ações</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let contato of contatos;">
+                                <td>
+                                    <div id="imagens">
+                                        <img src="{{contato.foto}}" width="100" />
+                                    </div>
+                                </td>
+                                <td>{{contato.nome}}</td>
+                                <td> <i class="pi pi-phone"> </i> {{contato.numero}}</td>
+                                <td>
+                                    <button class="btn btn-info btn-fab btn-round" [routerLink]="['/editar', contato.id_contato]">
+                                        <i class="fas fa-edit" ></i></button>
+                                    <button class="btn btn-danger btn-fab btn-round"
+                                        (click)="alertaConfirmacao(contato.id_contato)">
+                                        <i class="fas fa-trash"></i></button>
 
+                                        
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                   
+                </div>
+            </div>
+        </div>
+    </div>
+<div>
+
+        <!-- <p-menubar [model]="items" class="p-shadow-24" [style]="{
+    backgroundColor:'var(--blue-500)', 
+    color:'var(--blue-50'
+}">
 </p-menubar>
 
-
-<p-card content="content">
+<p-card content="content" [style]="{'width': '40rem', 'margin-top': '2em', backgroundColor:'var(--blue-500)'}" class="p-shadow-24">
     <p-table [value]="contatos">
-        <ng-template pTemplate="header">
+        <ng-template pTemplate="header" [style]="{
+            backgroundColor:'var(--blue-500)'
+        }">
             <tr>
                 <th></th>
                 <th>Nome</th>            
@@ -33,7 +79,7 @@
 
 
 <p-dialog header="Novo contato" [(visible)]="display" [style]="{width: '30vw'}">
-    <!-- <form>
+     <form>
         
         <p>Foto: <input type="file" [(ngModel)]="contato.foto" (change)="selecionarImagem($event)"></p><br>
         <button type="button" (click)="cadastrarContato()"></button>
@@ -41,7 +87,7 @@
     </form> -->
 
 
-    <form [formGroup] = "uploadForm" (ngSubmit)="cadastrarContato()">  
+        <!-- <form [formGroup] = "uploadForm" (ngSubmit)="cadastrarContato()">  
         <p>Nome: <input type="text" formControlName="nome" [(ngModel)]="contato.nome"></p><br>
         <p>Telefone: <input type="text" formControlName="numero" [(ngModel)]="contato.numero"></p><br>    
         <div>
@@ -66,7 +112,7 @@
           <button type="submit">Alterar</button>
         </div>
       </form>
-</p-dialog>
+</p-dialog> -->
 
 
 
@@ -75,7 +121,7 @@
 
 
 
-<!-- <html>
+        <!-- <html>
 <p-orderList [value]="contatos" [listStyle]="{'max-height':'30rem', 'max-width': '80rem'}"header="Lista de contatos" filterBy="nome" filterPlaceholder="Filter by name">
     <ng-template let-contato pTemplate="contato">
         <div class="contato-item">
@@ -88,18 +134,18 @@
                 <span class="product-category"> {{contato.numero}}</span>
             </div>
             <div class="product-list-action"> -->
-                <!-- <button style="margin-right:10px;" pButton type="button" icon="pi pi-pencil" class="p-button-success" iconPos="left" (click)="editarContato()"></button> -->
-                <!-- <button pButton type="button" icon="pi pi-times" class="p-button-danger" iconPos="left" (click)="deletarContato(contato.id_contato)"></button>
+        <!-- <button style="margin-right:10px;" pButton type="button" icon="pi pi-pencil" class="p-button-success" iconPos="left" (click)="editarContato()"></button> -->
+        <!-- <button pButton type="button" icon="pi pi-times" class="p-button-danger" iconPos="left" (click)="deletarContato(contato.id_contato)"></button>
             </div>
         </div>
     </ng-template>
 </p-orderList>
 </html> -->
 
-<!--separando-->
+        <!--separando-->
 
 
-<!-- <div class="card">
+        <!-- <div class="card">
     <p-dataView #dv [value]="contatos" layout="listItem">
         <ng-template pTemplate="header">
             <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
@@ -127,43 +173,3 @@
         </ng-template>
     </p-dataView>
 </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
