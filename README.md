@@ -1,33 +1,28 @@
 # Agenda
 
-npm install --save-dev @angular-devkit/build-angular
-
-ng build
-
-ng serve
+Uma aplicação para que um usuário possa gerenciar uma lista de contatos.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
-## Development server
+[Documentação](https://drive.google.com/file/d/1Clm9AU-_zqNaHgEf4Pny9tp8J4Y9vVro/view?usp=sharing)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[Diagrama ER](https://www.canva.com/design/DAEoBD5LJBE/q7vQUn1IJ5OgyZ-H7AXS3w/watch?utm_content=DAEoBD5LJBE&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
-## Code scaffolding
+## Pré-Requisitos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Será necessário o docker e docker-compose instalado no computador.
 
-## Build
+## Rodando ambiente com Docker
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Na raiz do projeto executar o comando 'docker-compose up' para subir a imagem do projeto:
 
-## Running unit tests
+## Criando as as migrações no banco
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Execute o comando 'docker-compose exec web python manage.py migrate'
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Populando o banco de dados para os dados iniciais
 
-## Further help
+Execute o comando 'docker-compose exec web python manage.py loaddata fixtures.json'
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
