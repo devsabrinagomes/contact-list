@@ -10,19 +10,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Pré-Requisitos
 
-Será necessário o docker e docker-compose instalado no computador.
+Será necessário a instalação do Angular CLI e Node 
 
-## Rodando ambiente com Docker
+## Instalando as depedencias do projeto
 
-Na raiz do projeto executar o comando 'docker-compose up' para subir a imagem do projeto:
+Na raiz do projeto executar o comando : "npm install" para instalar as depedencias do projeto
 
-## Criando as as migrações no banco
+## Executar server de desenvolvimento
 
-Execute o comando 'docker-compose exec web python manage.py migrate'
-
-
-## Populando o banco de dados para os dados iniciais
-
-Execute o comando 'docker-compose exec web python manage.py loaddata fixtures.json'
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
 
