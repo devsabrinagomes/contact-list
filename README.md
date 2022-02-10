@@ -1,4 +1,4 @@
-# Agenda
+# Contact list
 
 Uma aplicação para que um usuário possa gerenciar uma lista de contatos.
 
